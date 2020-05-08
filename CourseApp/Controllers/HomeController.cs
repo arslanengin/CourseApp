@@ -9,15 +9,15 @@ namespace CourseApp.Controllers
 {
     public class HomeController : Controller
     {
-        private CourseAppContext context;
-        public HomeController(CourseAppContext _context)
+        private CourseAppContext _context;
+        public HomeController(CourseAppContext context)
         {
-            context = _context;
+            _context = context;
         }
         public IActionResult Index()
         {
             
-            return View();
+            return View(_context.Courses);
         }
         [HttpGet]
         public IActionResult AddRequest()
@@ -28,13 +28,13 @@ namespace CourseApp.Controllers
         [HttpPost]
         public IActionResult AddRequest(Request model)
         {
-            context.Requests.Add(model);
-            context.SaveChanges();
+            _context.Requests.Add(model);
+            _context.SaveChanges();
             return View("Thanks",model);
         }
         public IActionResult List(Request model)
         {
-            return View(context.Requests);
+            return View(_context.Requests);
         }
     }
 }

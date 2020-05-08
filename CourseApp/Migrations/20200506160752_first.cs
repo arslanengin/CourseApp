@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CourseApp.Migrations
 {
-    public partial class CreateDatabase : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

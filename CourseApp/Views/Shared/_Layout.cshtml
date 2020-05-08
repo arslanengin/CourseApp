@@ -9,13 +9,28 @@
     <link href="~/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
 
-        body{
-            margin:0;
-            padding:0;
+        body {
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 <body>
     @RenderBody()
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        jQuery(document).ready(function ($) {
+
+            $("#filter").submit(function () {
+                $(this).find(":input").filter(function () { return !this.value; }).attr("disabled", "disabled");
+                return true;
+            });
+
+            $("form").find(":input").prop("disabled", false);
+
+        });
+    </script>
 </body>
 </html>

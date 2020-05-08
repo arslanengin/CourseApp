@@ -11,9 +11,10 @@ using System;
 namespace CourseApp.Migrations
 {
     [DbContext(typeof(CourseAppContext))]
-    partial class CourseAppContextModelSnapshot : ModelSnapshot
+    [Migration("20200508115632_TableContact")]
+    partial class TableContact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

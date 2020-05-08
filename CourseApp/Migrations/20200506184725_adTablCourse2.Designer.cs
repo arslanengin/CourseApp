@@ -11,8 +11,8 @@ using System;
 namespace CourseApp.Migrations
 {
     [DbContext(typeof(CourseAppContext))]
-    [Migration("20200506070550_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20200506184725_adTablCourse2")]
+    partial class adTablCourse2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace CourseApp.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("CourseApp.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<bool>("isActive");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
 
             modelBuilder.Entity("CourseApp.Models.Request", b =>
                 {
